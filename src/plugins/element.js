@@ -24,8 +24,16 @@ import {
     Tooltip,
     Pagination,
     Dialog,
-    MessageBox
+    MessageBox,
+    Tag,
+    Tree,
+    Select,
+    Option
 } from 'element-ui' //弹框提示,需要全局挂载
+Vue.use(Tree)
+Vue.use(Tag)
+Vue.use(Select)
+Vue.use(Option)
 Vue.use(Button)
 Vue.use(Form)
 Vue.use(FormItem)
