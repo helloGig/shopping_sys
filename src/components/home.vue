@@ -75,7 +75,7 @@ export default {
   },
   created() {
     this.fnGetMenuList();
-    this.activePath=window.sessionStorage.getItem('activePath');
+    this.activePath = window.sessionStorage.getItem("activePath");
   },
   methods: {
     //退出
@@ -98,7 +98,7 @@ export default {
     //保存左侧列表状态
     fnSaveNavState(activePath) {
       window.sessionStorage.setItem("activePath", activePath);
-      this.activePath=activePath;
+      this.activePath = activePath;
     }
   }
 };

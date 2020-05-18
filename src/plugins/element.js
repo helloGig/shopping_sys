@@ -28,9 +28,11 @@ import {
     Tag,
     Tree,
     Select,
-    Option
+    Option,
+    Cascader
 } from 'element-ui' //弹框提示,需要全局挂载
 Vue.use(Tree)
+Vue.use(Cascader)
 Vue.use(Tag)
 Vue.use(Select)
 Vue.use(Option)
