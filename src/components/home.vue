@@ -60,7 +60,7 @@ export default {
   data() {
     return {
       //是否展开列表
-      isCollapse: true,
+      isCollapse: false,
       //列表状态
       activePath: "",
       menuList: [],

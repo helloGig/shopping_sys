@@ -73,11 +73,11 @@
           <!--options指定数据源  -->
           <!--props配置对象  -->
           <el-cascader
-            v-model="selectKeys"
             :options="parentCateList"
             :props="cascaderProps"
+            v-model="selectKeys"
             @change="parentCateChange"
-            :clearable="true"
+            clearable
           ></el-cascader>
         </el-form-item>
       </el-form>

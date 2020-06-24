@@ -28,3 +28,7 @@ body,
 .border-color input.el-input__inner:focus {
     border-color: green;
 }
+
+.ql-editor {
+    min-height: 300px;
+}

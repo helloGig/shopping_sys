@@ -19,6 +19,7 @@
             :options="cateList"
             :props="cascaderProps"
             @change="parentCateChange"
+            clearable
           ></el-cascader>
         </el-col>
       </el-row>
@@ -195,8 +196,7 @@ export default {
         value: "cat_id",
         label: "cat_name",
         chidren: "children",
-        expandTrigger: "hover",
-        checkStrictly: true
+        expandTrigger: "hover"
       },
       ///选中的父级元素
       selectKeys: [],
@@ -270,7 +270,7 @@ export default {
           return this.$message.error("获取数据列表失败");
         }
         _request.data.forEach(item => {
-          item.attr_vals = item.attr_vals ? item.attr_vals.split("") : [];
+          item.attr_vals = item.attr_vals ? item.attr_vals.split(" ") : [];
           //控制文本框的显示与隐藏
           item.inputVisible = false;
           //文本框中输入的值
