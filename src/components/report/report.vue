@@ -1,0 +1,73 @@
+<template>
+  <div>
+    <!--面包xue导航-->
+    <el-breadcrumb separator-class="el-icon-arrow-right">
+      <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item>数据统计</el-breadcrumb-item>
+      <el-breadcrumb-item>数据报表</el-breadcrumb-item>
+    </el-breadcrumb>
+    <!-- 卡片视图 -->
+    <el-card>
+      <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+      <div id="main" style="width: 750px;height:400px;"></div>
+    </el-card>
+  </div>
+</template>
+<script>
+import echarts from "echarts";
+import _ from "lodash";
+export default {
+  data() {
+    return {
+      options: {
+        title: {
+          text: "用户来源"
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "cross",
+            label: {
+              backgroundColor: "#E9EEF3"
+            }
+          }
+        },
+        grid: {
+          left: "3%",
+          right: "4%",
+          bottom: "3%",
+          containLabel: true
+        },
+        xAxis: [
+          {
+            boundaryGap: false
+          }
+        ],
+        yAxis: [
+          {
+            type: "value"
+          }
+        ]
+      }
+    };
+  },
+  created() {},
+  async mounted() {
+    //assign , merge ,extend的区别
+    //此时页面上的元素已经被渲染完毕
+    //模板渲染完了执行
+    //2.基于准备好的dom，初始化charts实例
+    var myChart = echarts.init(document.getElementById("main"));
+    const { data: _request } = await this.$http.get("reports/type/1");
+    if (_request.meta.status !== 200) this.$message.error("获取折线图失败");
+    console.log(_request);
+    //4.准备数据和配置项
+    const result = _.merge(_request.data, this.options);
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(result);
+  },
+  methods: {}
+};
+</script>
+<style lang="less" scoped>
+</style>
