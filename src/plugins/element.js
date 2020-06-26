@@ -1,4 +1,5 @@
 import Vue from 'vue'
+
 import {
     Message,
     Button,
@@ -37,8 +38,14 @@ import {
     Steps,
     Checkbox,
     CheckboxGroup,
-    Upload
+    Upload,
+    Timeline,
+    TimelineItem
 } from 'element-ui' //弹框提示,需要全局挂载
+//import Timeline from './timeline/index.js'
+//import TimelineItem from './timelineitem/index.js'
+Vue.use(Timeline)
+Vue.use(TimelineItem)
 Vue.use(Upload)
 Vue.use(Checkbox)
 Vue.use(CheckboxGroup)
